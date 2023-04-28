@@ -30,14 +30,13 @@ class WordFrequency
 
       BPlusTree t2 = new BPlusTree(null); 
       // if tree looks like this: P: C,E; CA: B,D; CB: D; CC: E 
-      for(char c = 'A'; c < 'Z'; c++){
+      for(char c = 'A'; c <= 'Z'; c++){
          System.out.println("Inserting " + c);
          t2.insertWord(Character.toString(c));
          System.out.println("Result:\n" + t2);
       }
-      
-      System.out.println("Final Result:\n\n" + t2);
-      /*
+
+      /*W
       System.out.println("Inserting B");
       t2.insertWord("B");
       System.out.println("The tree after printing B: \n" + t2);

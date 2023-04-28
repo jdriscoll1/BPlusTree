@@ -117,6 +117,8 @@ class BTNodeInternal extends BTNode
       P.insert_key(super.keys.get(i));
       P.addChildNode(CA);
       P.addChildNode(CB);
+      P.children.remove(this); 
+
       P.split(tree);  
        
       
