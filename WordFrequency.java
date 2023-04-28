@@ -15,70 +15,14 @@ import java.util.*;
 class WordFrequency
 {
    public static boolean Assert_InsertBTNodeInternalWorks(){
-      
-      /*
-      BPlusTree t1 = new BPlusTree(null); 
-      // if tree looks like this: P: C,E; CA: B,D; CB: D; CC: E 
-      t1.insertWord("B");
-      t1.insertWord("C"); 
-      t1.insertWord("D");
-      t1.insertWord("E"); 
-      t1.insertWord("F");
-      t1.insertWord("G");
-      
-      System.out.println(t1);*/
 
       BPlusTree t2 = new BPlusTree(null); 
-      // if tree looks like this: P: C,E; CA: B,D; CB: D; CC: E 
       for(char c = 'A'; c <= 'Z'; c++){
-         System.out.println("Inserting " + c);
          t2.insertWord(Character.toString(c));
-         System.out.println("Result:\n" + t2);
       }
+      t2.printLeavesInSequence();
 
-      /*W
-      System.out.println("Inserting B");
-      t2.insertWord("B");
-      System.out.println("The tree after printing B: \n" + t2);
-      
-      System.out.println("Inserting E");
-      t2.insertWord("E"); 
-      System.out.println("The tree after printing E: \n" + t2);
-
-      System.out.println("Inserting F");
-      t2.insertWord("F");
-      System.out.println("The tree after printing F: \n" + t2);
-
-      System.out.println("Inserting G");
-      t2.insertWord("G");
-      System.out.println("The tree after printing G: \n" + t2);
-
-      
-      System.out.println("Inserting M");
-      t2.insertWord("M");
-      System.out.println("The tree after printing M: \n" + t2);
-
-      
-      System.out.println("Inserting P");
-      t2.insertWord("P");
-      System.out.println("The tree after printing P: \n" + t2);
-
-      
-      System.out.println("Inserting H");
-      t2.insertWord("H");
-      System.out.println("The tree after printing H: \n" + t2);
-
-      
-      //System.out.println("Inserting I");
-      //t2.insertWord("I");
-      //System.out.println("Inserting: " + "A");
-      //System.out.println("T2 is currently equal to: " + t2);
-      //t2.insertWord("A");
-      System.out.println("Final Result: \n " + t2);
-
-
-      */
-
+     
       return false; 
    }
 

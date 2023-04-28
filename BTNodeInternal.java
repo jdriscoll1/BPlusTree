@@ -228,6 +228,7 @@ class BTNodeInternal extends BTNode
    
    public void printLeavesInSequence()
    {
+      this.children.get(0).printLeavesInSequence(); 
       
    }
    
