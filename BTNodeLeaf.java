@@ -22,7 +22,6 @@ class BTNodeLeaf extends BTNode
       if(super.keys.size() < super.N + 1){
          return; 
       }
-      System.out.println("Splitting Leaf Node: " + this);
 
    
       // Assign the parent node
@@ -52,18 +51,11 @@ class BTNodeLeaf extends BTNode
       }
       w = super.keys.get(m); 
       // Insert w 
-      System.out.println("The Parent Being Inserted Into Is: " + P);
       P.insert_key(w);
-      
-      System.out.print(P);
-      
-      System.out.println("Adding CA: " + CA); 
-      System.out.println("Adding CB: " + CB);
             
       P.addChildNode(CA); 
       P.addChildNode(CB);
 
-      System.out.print(P); 
       // Remove this node from the parent's children
       P.children.remove(this); 
       P.split(tree); 
@@ -83,7 +75,6 @@ class BTNodeLeaf extends BTNode
    
    public void insert(String word, BPlusTree tree)
    {
-      System.out.println("Inserting " + word + " into leaf: " + this);
       int pos = Collections.binarySearch(super.keys, word);
       if (pos < 0) {
          this.keys.add(-pos-1, word);

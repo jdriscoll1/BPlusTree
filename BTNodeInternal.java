@@ -19,7 +19,6 @@ class BTNodeInternal extends BTNode
    }
    
    public void insert_key(String key){
-      System.out.println("Inserting " + key + " into internal: " + this);
       int pos = Collections.binarySearch(super.keys, key);
       if (pos < 0) {
          this.keys.add(-pos-1, key);
@@ -37,16 +36,13 @@ class BTNodeInternal extends BTNode
    }
    
    public void merge(BTNode node){
-      System.out.println("Merging " + node + " into " + this); 
    
    }
    
    // It can insert a node into the tree
    public void insert(String key, BPlusTree tree){
       // Look for the location at which the child is less than the next index
-      // If it is not larger than any of them, add it to the back 
-      System.out.println(this);
-      
+      // If it is not larger than any of them, add it to the back       
       String k = key; 
       
       // The total number of keys in this node
@@ -86,7 +82,6 @@ class BTNodeInternal extends BTNode
          return; 
       }
       
-      System.out.println("Splitting the node:  " + this);
 
       // Create new leaves in which to insert the elements
       BTNodeInternal P = (this.parent == null) ? new BTNodeInternal(null, tree.assignNodeID()) : this.parent;
@@ -107,27 +102,21 @@ class BTNodeInternal extends BTNode
       
       // Insert all of the children nodes into the left child node
       for(int j = 0; j < i; j++){
-         System.out.println("Inserting " + super.keys.get(j) + " into " + CA);
          CA.insert_key(super.keys.get(j)); 
       }
       for(int j = i+1; j <= super.N; j++){
-         System.out.println("Inserting "+ super.keys.get(j) + " into " + CB);
          CB.insert_key(super.keys.get(j));
       }
       
       for(int j = 0; j <= i; j++){
-         System.out.println("Adding " + this.children.get(j) + " as a child node of " + CA);
          CA.addChildNode(this.children.get(j)); 
       }
       for(int j = i+1; j <= super.N + 1; j++){
-         System.out.println("Adding " + this.children.get(j) + " as a child node of " + CB);
          CB.addChildNode(this.children.get(j)); 
       }
       P.insert_key(super.keys.get(i));
       P.addChildNode(CA);
       P.addChildNode(CB);
-      System.out.println("CA: " + CA);
-      System.out.println("CB: " + CB);
       P.split(tree);  
        
       
@@ -169,7 +158,6 @@ class BTNodeInternal extends BTNode
    public void insert_recurse(String key, BPlusTree tree){
       // Obtain the current node 
       // First, find the correct 
-      System.out.println("Inserting " + key + " into internal: " + super.nodeID);
       int pos = Collections.binarySearch(super.keys, key);
       if (pos < 0) {
          this.keys.add(-pos-1, key);

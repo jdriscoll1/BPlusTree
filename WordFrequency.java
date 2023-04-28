@@ -30,6 +30,14 @@ class WordFrequency
 
       BPlusTree t2 = new BPlusTree(null); 
       // if tree looks like this: P: C,E; CA: B,D; CB: D; CC: E 
+      for(char c = 'A'; c < 'Z'; c++){
+         System.out.println("Inserting " + c);
+         t2.insertWord(Character.toString(c));
+         System.out.println("Result:\n" + t2);
+      }
+      
+      System.out.println("Final Result:\n\n" + t2);
+      /*
       System.out.println("Inserting B");
       t2.insertWord("B");
       System.out.println("The tree after printing B: \n" + t2);
@@ -47,30 +55,30 @@ class WordFrequency
       System.out.println("The tree after printing G: \n" + t2);
 
       
+      System.out.println("Inserting M");
+      t2.insertWord("M");
+      System.out.println("The tree after printing M: \n" + t2);
+
+      
+      System.out.println("Inserting P");
+      t2.insertWord("P");
+      System.out.println("The tree after printing P: \n" + t2);
+
+      
       System.out.println("Inserting H");
       t2.insertWord("H");
       System.out.println("The tree after printing H: \n" + t2);
 
       
-      System.out.println("Inserting J");
-      t2.insertWord("J");
-      System.out.println("The tree after printing J: \n" + t2);
-
-      
-      System.out.println("Inserting K");
-      t2.insertWord("K");
-      System.out.println("The tree after printing K: \n" + t2);
-
-      
-      System.out.println("Inserting I");
-      t2.insertWord("I");
+      //System.out.println("Inserting I");
+      //t2.insertWord("I");
       //System.out.println("Inserting: " + "A");
       //System.out.println("T2 is currently equal to: " + t2);
       //t2.insertWord("A");
       System.out.println("Final Result: \n " + t2);
 
 
-      
+      */
 
       return false; 
    }
