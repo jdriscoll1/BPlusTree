@@ -1,9 +1,10 @@
 import java.util.Collections;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 class BTNodeLeaf extends BTNode
 {
-   ArrayList<Integer> keyCounts;
+   public ArrayList<Integer> keyCounts;
    BTNodeLeaf nextLeaf;
    BTNodeLeaf prevLeaf; 
    // Current number of elements in node
@@ -18,6 +19,7 @@ class BTNodeLeaf extends BTNode
       super.nodeID = id; 
       this.nextLeaf = null; 
       this.prevLeaf = null; 
+      this.keyCounts = new ArrayList<Integer>(); 
       
    }
    
@@ -54,13 +56,18 @@ class BTNodeLeaf extends BTNode
       // Fill CA 
       for(int i = 0; i <= m; i++){
          w = super.keys.get(i); 
-         CA.insert(w, tree); 
+         for(int j = 0; j < this.keyCounts.get(i); j++){
+            CA.insert(w, tree); 
+         }
       }
       
       // Fill CB
       for(int i = m+1; i <= super.N; i++){
          w = super.keys.get(i); 
-         CB.insert(w, tree); 
+         for(int j = 0; j < this.keyCounts.get(i); j++){
+            CB.insert(w, tree); 
+         }
+
       }
       w = super.keys.get(m); 
       // Insert w 
@@ -91,6 +98,12 @@ class BTNodeLeaf extends BTNode
       int pos = Collections.binarySearch(super.keys, word);
       if (pos < 0) {
          this.keys.add(-pos-1, word);
+         this.keyCounts.add(1); 
+      }
+      else{
+         this.keyCounts.set(pos, this.keyCounts.get(pos) + 1); 
+         return; 
+         
       }
       // Check if L has enough space, insert word 
       if(n < N){
@@ -106,9 +119,12 @@ class BTNodeLeaf extends BTNode
    
    public void printLeavesInSequence()
    {
-      for(String key : super.keys){
-         System.out.printf("%s ", key);
-      } 
+      Iterator<String> keyIterator = super.keys.iterator();
+      Iterator<Integer> countIterator = this.keyCounts.iterator();
+      
+      while(keyIterator.hasNext() && countIterator.hasNext()){
+         System.out.println(keyIterator.next() + ": " + countIterator.next());
+      }
       if(this.nextLeaf != null){
          this.nextLeaf.printLeavesInSequence(); 
       }

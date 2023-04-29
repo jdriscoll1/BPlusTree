@@ -14,7 +14,22 @@ import java.util.*;
 
 class WordFrequency
 {
-   public static boolean Assert_InsertBTNodeInternalWorks(){
+
+   public static boolean Assert_IncrementAddedWords(){
+      // Arrange
+      BPlusTree t = new BPlusTree(null); 
+      for(char c = 'A'; c <= 'Z'; c++){
+         int r = (int)(Math.random() * 5) + 1; 
+         for(int i = 0; i < r; i++){
+            t.insertWord(Character.toString(c));
+         }
+      }
+      t.printLeavesInSequence(); 
+      // Act
+      // Assert
+      return false; 
+   }
+   public static boolean Assert_Insert100Words(){
 
       BPlusTree t2 = new BPlusTree(null);
       
@@ -70,22 +85,7 @@ class WordFrequency
    }
    public static void main(String[] args)
    {
-      Assert_InsertBTNodeInternalWorks(); 
-   
-     /*
-      BPlusTree tree = new BPlusTree(null); 
-      tree.insertWord("B");
-      tree.insertWord("C");
-      tree.insertWord("D"); 
-      tree.insertWord("E");
-      tree.insertWord("F");     
-      System.out.println(tree);
-      */
-      //System.out.println("\n\nInserting A: \n");
-      //tree.insertWord("A");
-
- 
-
+      Assert_IncrementAddedWords();
       
       /*
       // The hash set of words to ignore
