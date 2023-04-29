@@ -16,14 +16,25 @@ class WordFrequency
 {
    public static boolean Assert_InsertBTNodeInternalWorks(){
 
-      BPlusTree t2 = new BPlusTree(null); 
-      for(char c = 'A'; c <= 'Z'; c++){
-         t2.insertWord(Character.toString(c));
+      BPlusTree t2 = new BPlusTree(null);
+      
+      int n = 100; 
+      
+		Integer[] intArray = new Integer[n];
+      for(int i = 0; i < n; i++){
+         intArray[i] = i; 
+      }
+		List<Integer> intList = Arrays.asList(intArray);
+
+		Collections.shuffle(intList);
+
+		intList.toArray(intArray);
+      for(int x : intArray){
+         t2.insertWord(Integer.toString(x));
       }
       System.out.println(t2);
       t2.printLeavesInSequence();
 
-     
       return false; 
    }
 
