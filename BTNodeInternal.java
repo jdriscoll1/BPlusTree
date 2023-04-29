@@ -227,7 +227,17 @@ class BTNodeInternal extends BTNode
    
    public Boolean searchWord(String word)
    {
-      return true;
+      // if it's smaller than all the words
+      
+      if(word.compareTo(super.keys.get(0)) <= 0){
+         return this.children.get(0).searchWord(word); 
+      }
+      for(int i = 0; i < super.keys.size() - 1; i++){
+          if(word.compareTo(super.keys.get(i)) > 0 && word.compareTo(super.keys.get(i + 1)) <= 0){
+            return this.children.get(i+1).searchWord(word);
+          }
+      }
+      return this.children.get(super.keys.size()).searchWord(word);
    }
    
    @Override

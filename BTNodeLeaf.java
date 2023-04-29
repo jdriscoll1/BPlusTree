@@ -159,7 +159,10 @@ class BTNodeLeaf extends BTNode
    
    public Boolean searchWord(String word)
    {
-	return false; 
+      // The word being searched for should be inside of this node
+      int w_i = super.keys.indexOf(word);
+      System.out.println((w_i == -1) ? word + " was not found" : word + " has " + this.keyCounts.get(w_i) + " occurences");
+	   return (w_i != -1); 
    }
    
    

@@ -18,13 +18,24 @@ class WordFrequency
    public static boolean Assert_IncrementAddedWords(){
       // Arrange
       BPlusTree t = new BPlusTree(null); 
+      
+      // Act
       for(char c = 'A'; c <= 'Z'; c++){
+         
          int r = (int)(Math.random() * 5) + 1; 
+         
          for(int i = 0; i < r; i++){
             t.insertWord(Character.toString(c));
          }
+         
       }
+      
+      System.out.println(t);
       t.printLeavesInSequence(); 
+      for(char c = 'A'; c <= 'Z'; c++){
+         t.root.searchWord(Character.toString(c).toLowerCase());
+      }
+      
       // Act
       // Assert
       return false; 
