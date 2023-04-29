@@ -20,6 +20,7 @@ class WordFrequency
       for(char c = 'A'; c <= 'Z'; c++){
          t2.insertWord(Character.toString(c));
       }
+      System.out.println(t2);
       t2.printLeavesInSequence();
 
      

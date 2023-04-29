@@ -175,7 +175,10 @@ class BTNodeInternal extends BTNode
       if(P.parent == null){
          tree.root = P; 
       }
+      
+      // Create a child node CA
       BTNodeInternal CA = new BTNodeInternal(P, tree.assignNodeID());
+      // Create a child node CB
       BTNodeInternal CB = new BTNodeInternal(P, tree.assignNodeID());
        
       
@@ -205,26 +208,6 @@ class BTNodeInternal extends BTNode
    
    }
    
-   /*
-   
-   public void insert(String key, BPlusTree tree)
-   {  
-      // When inserting into an internal node, it is necessary to loop to find which child the key belongs in 
-      
-      // Gotta find the relevant child node 
-      // Start off at the first index      
-      for(int i = 0; i < super.keys.size() - 1; i++){
-         // if it is less than the next one and greater than the current one, or the first one, insert
-         if(key.compareTo(super.keys.get(i)) < 0){
-            System.out.println(key + " < " + super.keys.get(i));
-            this.children.get(i).insert(key, tree); 
-            return; 
-         }
-      }
-      this.children.get(this.children.size() - 1).insert(key, tree); 
-   
-   }
-   */
    
    public void printLeavesInSequence()
    {

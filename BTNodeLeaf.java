@@ -5,6 +5,7 @@ class BTNodeLeaf extends BTNode
 {
    ArrayList<Integer> keyCounts;
    BTNodeLeaf nextLeaf;
+   BTNodeLeaf prevLeaf; 
    // Current number of elements in node
    int n; 
    
@@ -15,6 +16,8 @@ class BTNodeLeaf extends BTNode
       this.n = 0; 
       super.keys = new ArrayList<String>();
       super.nodeID = id; 
+      this.nextLeaf = null; 
+      this.prevLeaf = null; 
       
    }
    
@@ -30,6 +33,16 @@ class BTNodeLeaf extends BTNode
       // Assign the children node
       BTNodeLeaf CA = new BTNodeLeaf(P, tree.assignNodeID());
       BTNodeLeaf CB = new BTNodeLeaf(P, tree.assignNodeID()); 
+      CA.setNextLeaf(CB);
+      CB.setNextLeaf(this.getNextLeaf());
+      CB.setPrevLeaf(CA);
+      CA.setPrevLeaf(this.getPrevLeaf());
+      if(this.getPrevLeaf() != null){
+         this.getPrevLeaf().setNextLeaf(CA);
+      }
+      if(this.getNextLeaf() != null){
+         this.getNextLeaf().setPrevLeaf(CB);
+      }
       
       /* GENERATE THE CENTRAL NODES */
       // middle node 
@@ -87,40 +100,7 @@ class BTNodeLeaf extends BTNode
          
       }
       this.split(tree); 
-      /*
-      
-      // Split the tree into a parent and two children node
-      BTNodeInternal P = (this.parent == null) ? new BTNodeInternal(null, tree.assignNodeID()) : this.parent; 
-      if(this.parent == null){ tree.root = P;}
-      BTNodeLeaf CA = new BTNodeLeaf(P, tree.assignNodeID());
-      BTNodeLeaf CB = new BTNodeLeaf(P, tree.assignNodeID()); 
-      
-      
-      // Select the center index to push upwards 
-      int i = (int)Math.ceil((double)super.N / 2); 
-      
-      // Insert the children nodes into their respective nodes
-      for(int j = 0; j <= i; j++){
-         CA.insert(super.keys.get(j), tree); 
-      }
-      for(int j = i+1; j <= N; j++){
-         CB.insert(super.keys.get(j), tree);
-      }
-      
-      // Add the two children node to the parent
-      P.addChildNode(CA).addChildNode(CB);
-
-      // Remove this node from the parent's children
-      P.children.remove(this); 
-      
-      System.out.println(P);
-
-      // Necessary to add relevant node to the top layer
-      P.insert_recurse(this.keys.get(i), tree); 
-      */
-      //
-
-      
+          
       
    }
    
@@ -134,6 +114,22 @@ class BTNodeLeaf extends BTNode
       }
    }
    
+   public void setPrevLeaf(BTNodeLeaf prevLeaf){
+      this.prevLeaf = prevLeaf; 
+   }
+   
+   public BTNodeLeaf getPrevLeaf(){
+      return this.prevLeaf; 
+   }
+   
+   public void setNextLeaf(BTNodeLeaf nextLeaf){
+      this.nextLeaf = nextLeaf; 
+   }
+   
+   public BTNodeLeaf getNextLeaf(){
+      return this.nextLeaf; 
+   }
+   
    public void printStructureWKeys()
    {
       
@@ -144,11 +140,14 @@ class BTNodeLeaf extends BTNode
       return true;
    }
    
+   
    public Boolean searchWord(String word)
    {
 	return false; 
    }
    
+   
+   // A toString Method
    @Override
    public String toString(){
       String str = ""; 
