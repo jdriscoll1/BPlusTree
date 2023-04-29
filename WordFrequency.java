@@ -4,7 +4,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import java.io.*;
 import java.util.*;
-
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
 
 // TO DO Before Submission 
 // Put name at top 
@@ -94,11 +96,10 @@ class WordFrequency
       boolean pass = P && C1 && C2 && C3; 
       return pass;  
    }
-   public static void main(String[] args)
+   public static void main(String[] args) throws FileNotFoundException
    {
-      Assert_IncrementAddedWords();
-      
-      /*
+     
+      //Printing values to file
       // The hash set of words to ignore
       HashSet<String> ignoreSet = new HashSet<String> (); 
       Document document = null;
@@ -109,13 +110,14 @@ class WordFrequency
       Scanner kb;
       
       //Check for valid arguments
+      /*
       if(args.length != 2)
       {
          System.out.println("ERROR: Incorrect format for command line arguments.");
          System.out.println("java WordFrequency <URL> <ignore_file_name.txt>");
          System.out.println("Exiting.");
          System.exit(-1);
-      }
+      }*/
       
       //Program will take time to set up tree; inform user
       System.out.println("WordFrequency is processing HTML. Please wait...");
@@ -142,8 +144,8 @@ class WordFrequency
       tree = new BPlusTree(ignoreSet);
         
       // Get HTML.
-       / Convert HTML to string.
-       // Tokenize string. 
+      // Convert HTML to string.
+      // Tokenize string. 
       
        
       try
@@ -172,7 +174,7 @@ class WordFrequency
       kb = new Scanner(System.in);
       
       mainMenu(tree);
-      */
+      
    }
    
    private static void mainMenu(BPlusTree tree)
@@ -199,6 +201,7 @@ class WordFrequency
          do
          {
             System.out.print("Select an option: ");
+    
             
             validSelect = true;
             

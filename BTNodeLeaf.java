@@ -119,15 +119,23 @@ class BTNodeLeaf extends BTNode
    
    public void printLeavesInSequence()
    {
+      for(int i = 0; i < super.keys.size(); i++){
+         System.out.println(super.keys.get(i) + ": " + this.keyCounts.get(i));
+      }
+      /*
       Iterator<String> keyIterator = super.keys.iterator();
       Iterator<Integer> countIterator = this.keyCounts.iterator();
       
+      
+      
       while(keyIterator.hasNext() && countIterator.hasNext()){
+         if(keyIterator.next().equals("overheads")){
+            System.out.println("Here");
+         }
          System.out.println(keyIterator.next() + ": " + countIterator.next());
       }
-      if(this.nextLeaf != null){
-         this.nextLeaf.printLeavesInSequence(); 
-      }
+      */
+
    }
    
    public void setPrevLeaf(BTNodeLeaf prevLeaf){
