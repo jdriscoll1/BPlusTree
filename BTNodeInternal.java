@@ -223,8 +223,14 @@ class BTNodeInternal extends BTNode
    }
    
    public Boolean rangeSearch(String startWord, String endWord)
-   {
-      return true;
+   {     
+      // When we explore the next child, there will be 4 options at maximum 
+      // For the first option, the key has to be greater than the start word
+      // For the second option, the key has to be l than the end word
+      for(BTNode child : this.children){
+         child.rangeSearch(startWord, endWord);
+      }
+      return false; 
    }
    
    public Boolean searchWord(String word)

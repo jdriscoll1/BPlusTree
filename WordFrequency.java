@@ -16,6 +16,14 @@ import java.io.PrintStream;
 
 class WordFrequency
 {
+   public static boolean Assert_RangeSearch(){
+      BPlusTree t = new BPlusTree(null);
+      for(char c = 'A'; c <= 'Z'; c++){
+         t.insertWord(Character.toString(c));
+      }
+      t.root.rangeSearch("k", "q");  
+      return false; 
+   }
 
    public static boolean Assert_IncrementAddedWords(){
       // Arrange
@@ -96,8 +104,11 @@ class WordFrequency
       boolean pass = P && C1 && C2 && C3; 
       return pass;  
    }
+   
    public static void main(String[] args) throws FileNotFoundException
    {
+      Assert_RangeSearch();
+      /*
      
       //Printing values to file
       // The hash set of words to ignore
@@ -110,6 +121,7 @@ class WordFrequency
       Scanner kb;
       
       //Check for valid arguments
+      */
       /*
       if(args.length != 2)
       {
@@ -118,6 +130,7 @@ class WordFrequency
          System.out.println("Exiting.");
          System.exit(-1);
       }*/
+      /*
       
       //Program will take time to set up tree; inform user
       System.out.println("WordFrequency is processing HTML. Please wait...");
@@ -260,5 +273,7 @@ class WordFrequency
       
       
       System.out.println("Quitting.");
+      */   
    }
+   
 }

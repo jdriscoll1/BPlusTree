@@ -161,6 +161,16 @@ class BTNodeLeaf extends BTNode
    
    public Boolean rangeSearch(String startWord, String endWord)
    {
+      int i = 0; 
+      for(String key : super.keys){
+         //System.out.println(startWord + " >= " + key);
+         //System.out.println(endWord + " <= " + key);
+
+         if(startWord.compareTo(key) <= 0 && endWord.compareTo(key) >= 0){
+            System.out.println(key + ": " +this.keyCounts.get(i));
+         }
+         i++; 
+      }
       return true;
    }
    
