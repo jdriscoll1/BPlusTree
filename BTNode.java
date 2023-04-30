@@ -15,7 +15,7 @@ abstract class BTNode
       
    public abstract void printLeavesInSequence();
       
-   public abstract void printStructureWKeys();
+   public abstract void printStructureWKeys(int depth);
    
    public abstract Boolean rangeSearch(String startWord, String endWord);
    

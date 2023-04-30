@@ -68,8 +68,9 @@ class WordFrequency
       for(int x : intArray){
          t2.insertWord(Integer.toString(x));
       }
-      System.out.println(t2);
-      t2.printLeavesInSequence();
+      //System.out.println(t2);
+      t2.root.printStructureWKeys(0); 
+      //t2.printLeavesInSequence();
 
       return false; 
    }
@@ -107,9 +108,7 @@ class WordFrequency
    
    public static void main(String[] args) throws FileNotFoundException
    {
-      Assert_RangeSearch();
-      /*
-     
+
       //Printing values to file
       // The hash set of words to ignore
       HashSet<String> ignoreSet = new HashSet<String> (); 
@@ -121,7 +120,7 @@ class WordFrequency
       Scanner kb;
       
       //Check for valid arguments
-      */
+      
       /*
       if(args.length != 2)
       {
@@ -130,7 +129,6 @@ class WordFrequency
          System.out.println("Exiting.");
          System.exit(-1);
       }*/
-      /*
       
       //Program will take time to set up tree; inform user
       System.out.println("WordFrequency is processing HTML. Please wait...");
@@ -273,7 +271,7 @@ class WordFrequency
       
       
       System.out.println("Quitting.");
-      */   
+        
    }
    
 }

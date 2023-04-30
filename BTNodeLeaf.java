@@ -122,19 +122,7 @@ class BTNodeLeaf extends BTNode
       for(int i = 0; i < super.keys.size(); i++){
          System.out.println(super.keys.get(i) + ": " + this.keyCounts.get(i));
       }
-      /*
-      Iterator<String> keyIterator = super.keys.iterator();
-      Iterator<Integer> countIterator = this.keyCounts.iterator();
-      
-      
-      
-      while(keyIterator.hasNext() && countIterator.hasNext()){
-         if(keyIterator.next().equals("overheads")){
-            System.out.println("Here");
-         }
-         System.out.println(keyIterator.next() + ": " + countIterator.next());
-      }
-      */
+
 
    }
    
@@ -154,24 +142,28 @@ class BTNodeLeaf extends BTNode
       return this.nextLeaf; 
    }
    
-   public void printStructureWKeys()
-   {
-      
+   public void printStructureWKeys(int depth){
+ 
+     for(int i = 0; i < super.keys.size(); i++){
+         for(int d = 0; d < depth; d++){
+            System.out.print('\t');
+         }
+         System.out.println(super.keys.get(i) + ": " + this.keyCounts.get(i));
+      }
    }
    
    public Boolean rangeSearch(String startWord, String endWord)
    {
       int i = 0; 
+      boolean isFound = false; 
       for(String key : super.keys){
-         //System.out.println(startWord + " >= " + key);
-         //System.out.println(endWord + " <= " + key);
-
          if(startWord.compareTo(key) <= 0 && endWord.compareTo(key) >= 0){
             System.out.println(key + ": " +this.keyCounts.get(i));
+            isFound = true; 
          }
          i++; 
       }
-      return true;
+      return isFound;
    }
    
    

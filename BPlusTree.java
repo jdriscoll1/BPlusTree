@@ -51,7 +51,7 @@ class BPlusTree
    {
       if(root != null)
       {
-         root.printStructureWKeys();
+         root.printStructureWKeys(0);
       }
    }
    

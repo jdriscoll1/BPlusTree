@@ -217,8 +217,19 @@ class BTNodeInternal extends BTNode
       
    }
    
-   public void printStructureWKeys()
+   public void printStructureWKeys(int depth)
    {
+      int i = 0; 
+      for(String key : super.keys){
+         for(int d = 0; d < depth; d++){
+            System.out.print("\t");
+         }
+         System.out.println(key);
+        
+         this.children.get(i).printStructureWKeys(depth + 1); 
+         i++; 
+      }
+      this.children.get(this.children.size() - 1).printStructureWKeys(depth + 1); 
       
    }
    
@@ -227,10 +238,13 @@ class BTNodeInternal extends BTNode
       // When we explore the next child, there will be 4 options at maximum 
       // For the first option, the key has to be greater than the start word
       // For the second option, the key has to be l than the end word
+      boolean isFound = false; 
       for(BTNode child : this.children){
-         child.rangeSearch(startWord, endWord);
+         if(child.rangeSearch(startWord, endWord)){
+            isFound = true; 
+         }
       }
-      return false; 
+      return isFound;  
    }
    
    public Boolean searchWord(String word)
