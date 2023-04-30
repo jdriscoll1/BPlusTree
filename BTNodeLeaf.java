@@ -54,7 +54,7 @@ class BTNodeLeaf extends BTNode
       String w; 
       
       // Fill CA 
-      for(int i = 0; i <= m; i++){
+      for(int i = 0; i < m; i++){
          w = super.keys.get(i); 
          for(int j = 0; j < this.keyCounts.get(i); j++){
             CA.insert(w, tree); 
@@ -62,7 +62,7 @@ class BTNodeLeaf extends BTNode
       }
       
       // Fill CB
-      for(int i = m+1; i <= super.N; i++){
+      for(int i = m; i <= super.N; i++){
          w = super.keys.get(i); 
          for(int j = 0; j < this.keyCounts.get(i); j++){
             CB.insert(w, tree); 
