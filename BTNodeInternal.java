@@ -25,20 +25,7 @@ class BTNodeInternal extends BTNode
       }
 
    }
-   
-   // This method takes the properties of a node and squishes it into this particular node
-   public BTNodeInternal merge(BTNodeInternal node){
-      // insert key()
-      // insertChildren()
- 
-
-      return this; 
-   }
-   
-   public void merge(BTNode node){
-   
-   }
-   
+     
    // It can insert a node into the tree
    public void insert(String key, BPlusTree tree){
       // Look for the location at which the child is less than the next index
@@ -120,18 +107,9 @@ class BTNodeInternal extends BTNode
       P.children.remove(this); 
 
       P.split(tree);  
-       
-      
-
-      
-   
-
-      
-      
      
    }
-   
-   
+  
    
    
    public BTNodeInternal addChildNode(BTNode child){
@@ -224,7 +202,7 @@ class BTNodeInternal extends BTNode
          for(int d = 0; d < depth; d++){
             System.out.print("\t");
          }
-         System.out.println(key);
+         System.out.println("[" + this.nodeID + "] "+ key);
         
          this.children.get(i).printStructureWKeys(depth + 1); 
          i++; 

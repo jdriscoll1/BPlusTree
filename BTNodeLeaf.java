@@ -88,7 +88,6 @@ class BTNodeLeaf extends BTNode
          return; 
       } 
       this.parent = P; 
-      this.parent.merge(P); 
       
        
    }
@@ -148,7 +147,7 @@ class BTNodeLeaf extends BTNode
          for(int d = 0; d < depth; d++){
             System.out.print('\t');
          }
-         System.out.println(super.keys.get(i) + ": " + this.keyCounts.get(i));
+         System.out.println("[" + this.nodeID + "] " + super.keys.get(i) + ": " + this.keyCounts.get(i));
       }
    }
    
@@ -158,7 +157,7 @@ class BTNodeLeaf extends BTNode
       boolean isFound = false; 
       for(String key : super.keys){
          if(startWord.compareTo(key) <= 0 && endWord.compareTo(key) >= 0){
-            System.out.println(key + ": " +this.keyCounts.get(i));
+            System.out.println("[" + this.nodeID + "] " + key + ": " + this.keyCounts.get(i));
             isFound = true; 
          }
          i++; 

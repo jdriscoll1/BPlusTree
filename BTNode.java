@@ -6,7 +6,7 @@ abstract class BTNode
    public ArrayList<String> keys;
    protected BTNodeInternal parent;
    // The maximum number of elements allowed in that particular node 
-   protected int N = 2; 
+   protected int N = 3; 
 
    
    public BTNodeInternal getParent() { return parent; }
