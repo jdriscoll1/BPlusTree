@@ -45,7 +45,7 @@ class BTNodeInternal extends BTNode
          String K = super.keys.get(i); 
          
          // Run comparison function 
-         if(k.compareTo(K) <= 0){
+         if(k.compareTo(K) < 0){
          
             // Insert node into child
             c = this.children.get(i); 
@@ -165,10 +165,10 @@ class BTNodeInternal extends BTNode
       
       // Select the center index to push upwards 
       int i = (int)Math.ceil(super.N / 2); 
-      for(int j = 0; j < Math.ceil(super.N / 2); j++){
+      for(int j = 0; j < i; j++){
          CA.addChildNode(this.children.get(j)); 
       }
-      for(int j = (int)Math.ceil((double)super.N / 2.0); j < super.N; j++){
+      for(int j = i; j < super.N; j++){
          CB.addChildNode(this.children.get(j)); 
       }
       

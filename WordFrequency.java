@@ -19,12 +19,16 @@ class WordFrequency
 
    public static void Assert_InsertionMax(){
       BPlusTree t = new BPlusTree(null);
-      t.insertWord("D");
-      t.insertWord("C");
-      t.insertWord("B");
-      t.insertWord("A");
-      
-      System.out.println(t);
+      for(int c = 'A'; c <= 'Z'; c++){
+         for(int d = 'A'; d <= c; d++){
+            System.out.println("Inserting: " + Character.toString(d));
+            t.insertWord(Character.toString(d));
+            t.printStructureWKeys();
+         }
+      }
+      System.out.println("Final Result:\n");
+      t.printStructureWKeys(); 
+
    }
    public static boolean Assert_RangeSearch(){
       BPlusTree t = new BPlusTree(null);
@@ -36,6 +40,7 @@ class WordFrequency
    }
 
    public static boolean Assert_IncrementAddedWords(){
+      
       // Arrange
       BPlusTree t = new BPlusTree(null); 
       
@@ -118,8 +123,8 @@ class WordFrequency
    
    public static void main(String[] args) throws FileNotFoundException
    {
-      Assert_InsertionMax(); 
-     /*
+      
+ 
       //Printing values to file
       // The hash set of words to ignore
       HashSet<String> ignoreSet = new HashSet<String> (); 
@@ -131,7 +136,7 @@ class WordFrequency
       Scanner kb;
       
       //Check for valid arguments
-      */
+      
       /*
       if(args.length != 2)
       {
@@ -139,7 +144,7 @@ class WordFrequency
          System.out.println("java WordFrequency <URL> <ignore_file_name.txt>");
          System.out.println("Exiting.");
          System.exit(-1);
-      }*//*
+      }*/
       
       //Program will take time to set up tree; inform user
       System.out.println("WordFrequency is processing HTML. Please wait...");
@@ -282,7 +287,7 @@ class WordFrequency
       
       
       System.out.println("Quitting.");
-      */
+      
         
    }
    
