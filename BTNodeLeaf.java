@@ -1,3 +1,10 @@
+
+/* CSCD 427 - Project 2 
+Name: Jordan Driscoll
+Date: 4/26/2023
+Description: The Leaf Node File
+*/
+
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,3 +1,9 @@
+/* CSCD 427 - Project 2 
+Name: Jordan Driscoll
+Date: 4/26/2023
+Description: The internal node 
+*/
+
 import java.util.Collections;
 import java.util.ArrayList;
 
@@ -229,11 +235,11 @@ class BTNodeInternal extends BTNode
    {
       // if it's smaller than all the words
       
-      if(word.compareTo(super.keys.get(0)) <= 0){
+      if(word.compareTo(super.keys.get(0)) < 0){
          return this.children.get(0).searchWord(word); 
       }
       for(int i = 0; i < super.keys.size() - 1; i++){
-          if(word.compareTo(super.keys.get(i)) > 0 && word.compareTo(super.keys.get(i + 1)) <= 0){
+          if(word.compareTo(super.keys.get(i)) >= 0 && word.compareTo(super.keys.get(i + 1)) < 0){
             return this.children.get(i+1).searchWord(word);
           }
       }

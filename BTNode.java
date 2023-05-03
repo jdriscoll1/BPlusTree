@@ -1,3 +1,9 @@
+/* CSCD 427 - Project 2 
+Name: Jordan Driscoll
+Date: 4/26/2023
+Description: Abstract node class
+*/
+
 import java.util.ArrayList;
 
 abstract class BTNode
